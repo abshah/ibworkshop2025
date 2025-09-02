@@ -17,13 +17,18 @@ In this workshop, you will learn how to:
 - Basic familiarity with Linux command line
 - de.NBI Cloud account (instructions provided in Part 1)
 
-### Software Pre-installed in the Workshop VMs
-The following tools are available in the workshop VMs via conda environment:
-- **mash**: Fast genome and metagenome distance estimation
-- **GNU parallel**: For parallel job execution
-- **fasterq-dump**: SRA Toolkit for data conversion
-- **minio client (mc)**: Object storage operations
-- **OpenStackClient**: For advanced cloud operations
+### Software Installation During the Workshop
+
+**Pre-installed via Conda (selected during VM creation):**
+- **mash (2.2)**: Fast genome and metagenome distance estimation
+- **GNU parallel (20220922)**: For parallel job execution
+- **sra-tools (3.1.1)**: Includes fasterq-dump for SRA data conversion
+
+**Installed during the workshop:**
+- **minio client (mc)**: Downloaded and installed manually for object storage operations
+- **Additional tools**: Various Linux packages installed as needed (e.g., fortune-mod, cowsay)
+
+**Note**: All conda tools are activated using `conda activate denbi` command.
 
 ## Workshop Structure
 
@@ -34,15 +39,17 @@ This workshop is divided into five progressive sections:
    - Setting up SSH keys
    - Joining the workshop project
    - Understanding the tools and prerequisites
+   - Starting a VM with pre-selected conda tools (mash, parallel, sra-tools)
 
 2. **[Part 2: Verify your VM Properties and Tools](Part2.md)**
    - Logging into your VM via Guacamole (browser-based access)
    - Verifying VM resources (CPU, RAM)
-   - Testing pre-installed tools
-   - Installing additional software
+   - Testing pre-installed conda tools
+   - Installing additional Linux packages
 
 3. **[Part 3: Basic Data Management in the Cloud](Part3.md)**
    - Creating and mounting volumes for persistent storage
+   - Installing minio client for object storage operations
    - Downloading and analyzing public metagenomic data from SRA
    - Working with S3 object storage using minio client
    - Running parallel analyses on cloud resources
@@ -50,13 +57,14 @@ This workshop is divided into five progressive sections:
 4. **[Part 4: Data Transfer](Part4.md)**
    - Using scp, sshfs, and rsync for data transfer
    - Transferring data between local and cloud environments
+   - Transferring data between different cloud instances
    - Working with volumes for large data transfers
 
 5. **[Part 5: Using the Object Storage](Part5.md)**
    - Creating OpenStack application credentials
-   - Setting up S3 credentials
-   - Uploading data to object storage
-   - Advanced object storage operations
+   - Setting up S3 credentials for object storage
+   - Uploading data to object storage buckets
+   - Advanced object storage operations (copying, mirroring, policies)
 
 ## Key Concepts Covered
 
@@ -76,5 +84,7 @@ This workshop is divided into five progressive sections:
 
 - All VMs in this workshop are accessed via browser (Guacamole) - no local SSH client required
 - The workshop uses SimpleVM interface (not the full OpenStack Horizon dashboard)
-- Data and tools are pre-configured in the workshop VMs 
+- Conda tools (mash, parallel, sra-tools) are pre-installed during VM creation
+- Minio client and other tools are installed during the workshop as needed
+- Workshop organizers have SSH access to help troubleshoot issues 
 
