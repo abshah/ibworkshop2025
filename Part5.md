@@ -74,38 +74,30 @@ mc ls spring/YOUR_CONTAINER_NAME
 
 ![](figures/minio_verify.png)
 
-## 5.4 Interact with the SRA Mirror and search for more datasets to analyse
+## 5.4 Additional Object Storage Operations
 
-1.  Add S3 config for our public SRA mirror on our Bielefeld Cloud site:
+For more advanced work with the SRA mirror and metagenomic datasets analysis, please refer to [Section 3.4](Part3.md#34-make-the-analysis-where-the-data-is-located) where we covered working with the de.NBI Cloud SRA mirror in detail.
 
-    ``` bash
-    mc config host add sra https://openstack.cebitec.uni-bielefeld.de:8080 "" ""
-    ```
+Here are some additional useful object storage operations:
 
-2.  List which files are available for SRA number `SRR3984908`:
+1. **Copy data between buckets:**
+   ``` bash
+   mc cp spring/YOUR_CONTAINER_NAME/file.txt spring/ANOTHER_CONTAINER/
+   ```
 
-    ``` bash
-    mc ls sra/ftp.era.ebi.ac.uk/vol1/fastq/SRR398/008/SRR3984908
-    ```
+2. **Mirror entire directories:**
+   ``` bash
+   mc mirror ~/local_data spring/YOUR_CONTAINER_NAME/backup/
+   ```
 
-3.  Check the size of these files
+3. **Set public access for sharing data:**
+   ``` bash
+   mc policy set download spring/YOUR_CONTAINER_NAME/public/
+   ```
 
-    ``` bash
-    mc du sra/ftp.era.ebi.ac.uk/vol1/fastq/SRR398/008/SRR3984908
-    ```
-
-4.  You can read the first lines of these files by using `mc cat`.
-
-    ``` bash
-    mc cat sra/ftp.era.ebi.ac.uk/vol1/fastq/SRR398/008/SRR3984908/SRR3984908_1.fastq.gz | zcat | head
-    ```
-
-5.  These entries are also available directly via URL as they are
-    public. For instance, the file above that was inspected using the
-    minio client can also be downloaded directly, e.g. using wget.
-
-    ``` bash
-    wget https://openstack.cebitec.uni-bielefeld.de:8080/ftp.era.ebi.ac.uk/vol1/fastq/SRR398/008/SRR3984908/SRR3984908_1.fastq.gz
-    ```
+4. **Monitor transfer progress:**
+   ``` bash
+   mc cp --json large_file.gz spring/YOUR_CONTAINER_NAME/ | jq .
+   ```
 
 Back to [Section 4](Part4.md)
