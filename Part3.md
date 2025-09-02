@@ -1,6 +1,6 @@
 # Section 3: Basic data management in the cloud
 
-Once your cumpute environment is set up, the question is how access your data
+Once your compute environment is set up, the question is how to access your data
 for your analysis. In this short section we want to load some external data into
 our virtual environment. Further, we will also search for more metagenomic
 datasets via object storage.
@@ -11,13 +11,14 @@ datasets via object storage.
    ``` bash
    df -h 
    ```
+2. Check the current disk usage and available space.
 3. In the SimpleVM portal, navigate to the Volumes section and create a volume for your VM.
    Enter your name without whitespace (Example: Max Mustermann -> MaxMusterman) as the volume name 
    and provide 10 GB as the volume size.
    ![](figures/createVolume.png)
 
 4. Attach this volume to your instance by opening the pull down menu of your volume and
-   clicking the green attach icon. Then select you virtual machine in the pop up menu and
+   clicking the green attach icon. Then select your virtual machine in the pop up menu and
    click the attach button.
    ![](figures/attachVolume.png)
 
@@ -53,12 +54,12 @@ datasets via object storage.
 In our use case, we want to search for some pathogenic factors in metagenomic data.
 Metagenomic data is public available e.g. in the Short Read Archive (SRA) hosted by the
 National Center for Biotechnology Information. We can search here for specific data sets, e.g.
-for metagenomic data that were generated with a specific sequencing instrument for e specific 
+for metagenomic data that were generated with a specific sequencing instrument for a specific 
 type of experiment.
 
 1. Go to:
    https://www.ncbi.nlm.nih.gov/sra
-2. And enter in the search fild the following search pattern:
+2. And enter in the search field the following search pattern:
    ``` bash
    blood culture AND ((((((Oxford Nanopore[Platform]) AND METAGENOMIC[Source]) AND WGS[Strategy]) AND SINGLE[Layout]) AND RANDOM[Selection]))
    ```
@@ -82,7 +83,7 @@ type of experiment.
    ``` bash
    wget https://openstack.cebitec.uni-bielefeld.de:8080/simplevm-workshop/genomes.msh
    ```
-7. Now we will screen the metagenomic data for parts of sequences belongig to those known pathogens:
+7. Now we will screen the metagenomic data for parts of sequences belonging to those known pathogens:
    ``` bash
    mash screen -p 12 genomes.msh SRR24962458.fastq
    ```   
@@ -97,8 +98,8 @@ some cloud object storage, for instance at the AWS cloud by Amazon.
 1. Let's see what we can find at the AWS marketplace. In a browser, navigate to:
    [AWS marketplace](https://aws.amazon.com/marketplace/search/results?trk=8384929b-0eb1-4af3-8996-07aa409646bc&sc_channel=el&FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE&CONTRACT_TYPE=OPEN_DATA_LICENSES&filters=FULFILLMENT_OPTION_TYPE%2CCONTRACT_TYPE)
 2. Let's search if we can find the SRA database that we used previously for FTP download by search for the term 'sra'.
-3. S3 data can be directly accessed via web protocols, such as HTTPS (e.g. by using a brower or wget). However,
-   for convenient data management a client that speaks S3 is necessary. We will use the minio cleint for this.
+3. S3 data can be directly accessed via web protocols, such as HTTPS (e.g. by using a browser or wget). However,
+   for convenient data management a client that speaks S3 is necessary. We will use the minio client for this.
    Unfortunately, conda does not offer a minio cli binary, which means that we would have to install it manually.
    Download the binary:
    ``` bash
@@ -120,7 +121,7 @@ some cloud object storage, for instance at the AWS cloud by Amazon.
    mkdir aws
    cd aws
    ```
-   Then we dowload the data:
+   Then we download the data:
    ``` bash
    mc cp  aws/sra-pub-run-odp/sra/SRR24962458/SRR24962458 .
    ```
@@ -131,7 +132,7 @@ some cloud object storage, for instance at the AWS cloud by Amazon.
 
 ## 3.4 Make the analysis where the data is located
 
-For operating on large datasets, accessing remote storage can be a bottle neck. For this reason, one of the cloud 
+For operating on large datasets, accessing remote storage can be a bottleneck. For this reason, one of the cloud 
 paradigms is called Data Gravity: The idea that data is a massive attractor and should be processed as close to
 its source as possible, reducing the need for expensive data movement. For this reason, the de.NBI Cloud at Bielefeld
 site holds a mirror of all metagenomic data of the SRA that we will use now.
@@ -162,7 +163,7 @@ site holds a mirror of all metagenomic data of the SRA that we will use now.
    wget https://openstack.cebitec.uni-bielefeld.de:8080/simplevm-workshop/genomes.msh
    ```
    
-7. We created a file that points to metagenomic datasets that you have found in the previous chapter.
+6. We created a file that points to metagenomic datasets that you have found in the previous chapter.
    Download the input file via:
    ``` bash
    wget https://raw.githubusercontent.com/deNBI/simpleVMWorkshopShort/EscienceDays2025/reads.tsv
@@ -171,14 +172,14 @@ site holds a mirror of all metagenomic data of the SRA that we will use now.
    ``` bash
    cat reads.tsv
    ```
-3. We will create a directory for the output for the following command. We will place an output
+7. We will create a directory for the output for the following command. We will place an output
    file for every SRA ID.
    ``` bash
    mkdir -p output
    ```
 
-4. You can now run the commands from the first part with found datasets as input (this may take a while to complete):
-   Create a function that we will run in prallel:
+8. You can now run the commands from the first part with found datasets as input (this may take a while to complete):
+   Create a function that we will run in parallel:
    ``` bash
    search(){ 
       left_read=$(echo $1 | cut -d ' '  -f 1);  
@@ -209,7 +210,7 @@ site holds a mirror of all metagenomic data of the SRA that we will use now.
    ``` bash
    export -f search
    ```
-   We can run this function now on the dat sets that are defined in the reads.tsv list in parallel:
+   We can run this function now on the datasets that are defined in the reads.tsv list in parallel:
    ``` bash
    cat reads.tsv | parallel search
    ```
@@ -217,11 +218,13 @@ site holds a mirror of all metagenomic data of the SRA that we will use now.
      * `reads.tsv` is a list of datasets that we want to scan.
      * `search` is the function that we want to call.
 
-5. Optional: This command will run a few minutes. You could open a second terminal
+9. Optional: This command will run a few minutes. You could open a second terminal
    and inspect the cpu utilization with `htop`.
    ![](figures/htop.png)
 
-6. Concatenate all results into one file via 
+10. Concatenate all results into one file via 
    ``` bash
    cat output/*.txt > output.tsv
    ```
+
+Back to [Section 2](Part2.md) | Next to [Section 4](Part4.md)

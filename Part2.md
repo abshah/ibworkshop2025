@@ -42,9 +42,9 @@ Log in to the VM and verify that SimpleVM provisioned the VM correctly.
    ```
    Exit `htop` by typing `q` or `F10`.
 
-6. You can use the tools you selected in the previous part by running `conda activate denbi`.
+5. You can use the tools you selected in the previous part by running `conda activate denbi`.
 
-7. Test if the needed commands are installed by running all of them with -h parameter.
+6. Test if the needed commands are installed by running all of them with -h parameter.
    You will get an explanation of their usage in the next chapter.
 
    * `mash -h`
@@ -53,7 +53,7 @@ Log in to the VM and verify that SimpleVM provisioned the VM correctly.
    If there is an error reported, then something went wrong, and we have to either
    repeat the conda installation manually or install it a different way.
 
-8. Remember that you have root permissions on the VM. You can install any
+7. Remember that you have root permissions on the VM. You can install any
    tool that you need for your research.
    Let's test this statement by first fetching the latest information about available packages and installing the following commands (`fortune-mod`, `cowsay`) via `sudo`.
 
@@ -70,3 +70,5 @@ Log in to the VM and verify that SimpleVM provisioned the VM correctly.
    ``` bash
    /usr/games/fortune | /usr/games/cowsay 
    ```
+
+Back to [Section 1](Part1.md) | Next to [Section 3](Part3.md)

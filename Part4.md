@@ -1,4 +1,4 @@
-## Section 4: Data Transfer
+# Section 4: Data Transfer
 
 We have now set up everything to actually transfer some data.
 There are different tools for copying files from/to the de.NBI Cloud each for different use cases. Under Linux you can choose between different command line tools. Some of them can also be used with a graphical user interface (GUI) by using a file manager. For Windows users it may be best to use a GUI tool like WinSCP. Some good Linux tools for this use case are:
@@ -7,7 +7,7 @@ There are different tools for copying files from/to the de.NBI Cloud each for di
     2. sshfs -- filesystem client based on ssh
     3. rsync -- a fast, versatile, remote (and local) file-copying tool
 
-### 4.1 Simple transfer using scp
+## 4.1 Simple transfer using scp
 
 In the image of the SimpleVM instances there is already some data located in your HOME directory. We will now copy some of this data to the other cloud instance in the second project.
 
@@ -27,7 +27,7 @@ In the image of the SimpleVM instances there is already some data located in you
  ```
 ![](figures/scp_remote.png)
 
-### 4.2 Activate a volume
+## 4.2 Activate a volume
 
 1. Connect to your instance using ssh again
 ``` bash

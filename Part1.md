@@ -11,7 +11,7 @@ The starting point for this tutorial is the de.NBI Cloud profile page
 If you do not have a de.NBI Cloud account, please register for one via
 this link: <https://cloud.denbi.de/register>. You can read more about
 the registration process in our de.NBI Cloud wiki:
-<https://cloud.denbi.de/wiki/registration/>. Please make sure to to
+<https://cloud.denbi.de/wiki/registration/>. Please make sure to
 click on "continue" if this button shows up.
 
 If you successfully registered for a de.NBI Cloud account, you should be
@@ -41,4 +41,6 @@ access to the project:
 
 [ib2025workshop
 invitation](https://simplevm.denbi.de/portal/webapp/#/workshops/invitation/faecbc35ec5648e890f6510f583e2b38)
+
+Next to [Section 2](Part2.md)
 

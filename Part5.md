@@ -1,6 +1,6 @@
-## Section 5: Using the Object Storage
+# Section 5: Using the Object Storage
 
-### 5.1 Creating application credentials
+## 5.1 Creating application credentials
 
 In this section you will create an [application
 credential](https://access.redhat.com/documentation/zh-cn/red_hat_openstack_platform/14/html/users_and_identity_management_guide/application_credentials)
@@ -74,7 +74,7 @@ mc ls spring/YOUR_CONTAINER_NAME
 
 ![](figures/minio_verify.png)
 
-### 5.4 Interact with the SRA Mirror and search for more datasets to analyse
+## 5.4 Interact with the SRA Mirror and search for more datasets to analyse
 
 1.  Add S3 config for our public SRA mirror on our Bielefeld Cloud site:
 
