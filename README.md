@@ -1,4 +1,4 @@
-# RDM Meets Cloud Workshop
+# Integrative Bioinformatics Conference Workshop: RDM Meets Cloud Workshop
 
 This short hands-on tutorial covers the CLI commands used for data management in the de.NBI Cloud session.
 

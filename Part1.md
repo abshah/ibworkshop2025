@@ -34,34 +34,11 @@ able to log in to the de.NBI Cloud Portal:
 2.(optional) If you have already a personal ssh key-pair, you can also
 upload your *public* key here instead of generating one.
 
-## 1.3 Join the ib2025workshop1 Project
+## 1.3 Join the *ib2025workshop1* Project
 
 If you have not done yet, please click on the following link to request
-access to the RDM Meets Cloud project:
+access to the project:
 
-ib2025workshop
+[ib2025workshop
+invitation](https://simplevm.denbi.de/portal/webapp/#/workshops/invitation/faecbc35ec5648e890f6510f583e2b38)
 
-## 1.4 Start a VM
-
-1.  Under the `Virtual Machine` entry on the left menu, select
-    `New Instance`.
-
-2.  Select the (only available) project `rdm-meets-cloud` and choose a
-    name for your VM (e.g. your login name) or a name will be selected
-    automatically.
-
-3.  Select **de.NBI default** as the flavor.
-
-4.  In the image section, please select the `Snapshots` tab and select
-    **RDM Meets Cloud Workshop** image. ![RDM
-    Cloud](./figures/image.png) **de.NBI default** flavor. ![]
-    (figures/deNBI_default_flav.png)
-
-5.  Select the Research Environment tab and choose the following
-    environment:
-
-    -   Guacamole 2025 ![Guacamole](figures/Gucamole_2025.png)
-
-6.  Confirm the checkboxes and click on Start.
-
-Next to [Section 2](Part2.md)
