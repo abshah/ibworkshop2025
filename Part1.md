@@ -53,7 +53,7 @@ In this workshop, we will use several tools that will be pre-installed in your V
 
 These tools will be available after activating the conda environment with `conda activate denbi` (covered in Section 2).
 
-**Note**: This workshop uses SimpleVM, which is a simplified interface for the de.NBI Cloud. The full OpenStack Horizon interface mentioned in some documentation provides more advanced features but is not required for this workshop.
+**Note**: This workshop uses SimpleVM, which is a simplified interface for the de.NBI Cloud. The full OpenStack Horizon interface more advanced features but is not required for this workshop.
 
 ## 1.5 Select the *ib2025workshop1* project
 
