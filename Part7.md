@@ -11,10 +11,10 @@ For data redundancy and disaster recovery, you can replicate data across differe
 ``` bash
 # Configure multiple regions
 mc config host add UniBi https://openstack.cebitec.uni-bielefeld.de:8080/ <ACCESS-KEY> <SECRET-KEY>
-mc config host add region2 https://openstack.other-region.de:8080/ <ACCESS-KEY> <SECRET-KEY>
+mc config host add UniHe https://denbi-cloud.bioquant.uni-heidelberg.de:8080/ <ACCESS-KEY> <SECRET-KEY>
 
 # Replicate data between regions
-mc mirror ibworkshop/YOUR_CONTAINER_NAME region2/BACKUP_CONTAINER/
+mc mirror ibworkshop/YOUR_CONTAINER_NAME UniHe/BACKUP_CONTAINER/
 ```
 
 ### 7.1.2 Batch operations with minio client
@@ -72,12 +72,7 @@ sshfs -p YOUR_PORT ubuntu@YOUR_VM_IP:/mnt/volume ~/remote_mount
 
 # Now you can access remote files as if they were local
 ls ~/remote_mount
-cp ~/remote_mount/file.txt ~/local_dir/
-
-# Unmount when done
-fusermount -u ~/remote_mount
-```
-
+cp ~/remote_mount/file.txt ~/local_dir/p
 ### 7.2.3 Parallel transfers with GNU parallel
 
 For transferring many files simultaneously:
