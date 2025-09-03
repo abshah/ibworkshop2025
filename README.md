@@ -1,5 +1,5 @@
-# Integrative Bioinformatics Conference Workshop: RDM Meets Cloud Workshop
-
+# Integrative Bioinformatics Conference Workshop 2025: RDM Meets Cloud Workshop
+8-9 September 2025
 This hands-on workshop introduces cloud computing and data management using the de.NBI Cloud infrastructure with a focus on metagenomic data analysis.
 
 ## Workshop Overview
@@ -9,6 +9,8 @@ In this workshop, you will learn how to:
 - Work with different storage options (volumes and object storage)
 - Analyze metagenomic data using cloud resources
 - Transfer data efficiently between local and cloud, and between cloud environments
+- Use the full OpenStack Horizon interface (optional advanced section)
+- Implement advanced data transfer methods for large-scale workflows
 
 ## Prerequisites
 
@@ -26,13 +28,13 @@ In this workshop, you will learn how to:
 
 **Installed during the workshop:**
 - **minio client (mc)**: Downloaded and installed manually for object storage operations
-- **Additional tools**: Various Linux packages installed as needed (e.g., fortune-mod, cowsay)
+- **Additional tools**: Various Linux packages installed as needed (e.g., fortune-mod, cowsay, rsync, sshfs)
 
 **Note**: All conda tools are activated using `conda activate denbi` command.
 
 ## Workshop Structure
 
-This workshop is divided into five progressive sections:
+This workshop is divided into seven sections (Parts 5-7 are optional):
 
 1. **[Part 1: First Contact with the de.NBI Cloud](Part1.md)**
    - Creating a de.NBI Cloud account
@@ -54,17 +56,28 @@ This workshop is divided into five progressive sections:
    - Working with S3 object storage using minio client
    - Running parallel analyses on cloud resources
 
-4. **[Part 4: Data Transfer](Part4.md)**
+4. **[Part 4: Using the Object Storage](Part4.md)**
+   - Creating OpenStack application credentials
+   - Setting up S3 credentials for object storage
+   - Uploading data to object storage buckets
+   - Advanced object storage operations (copying, mirroring, policies)
+
+5. **[Part 5: Data Transfer](Part5.md)**
    - Using scp, sshfs, and rsync for data transfer
    - Transferring data between local and cloud environments
    - Transferring data between different cloud instances
    - Working with volumes for large data transfers
 
-5. **[Part 5: Using the Object Storage](Part5.md)**
-   - Creating OpenStack application credentials
-   - Setting up S3 credentials for object storage
-   - Uploading data to object storage buckets
-   - Advanced object storage operations (copying, mirroring, policies)
+6. **[Part 6: Using Horizon OpenStack Interface (Optional)](Part6.md)**
+   - Creating key pairs in Horizon
+   - Launching instances using the full OpenStack interface
+   - SSH access to Horizon-managed instances
+
+7. **[Part 7: Advanced Data Transfer Methods (Optional)](Part7.md)**
+   - Advanced object storage operations (cross-region replication, versioning)
+   - Efficient SSH-based transfers (rsync, SSHFS, parallel transfers)
+   - Hybrid transfer methods and data pipelines
+   - Performance optimization and data integrity verification
 
 ## Key Concepts Covered
 
@@ -83,7 +96,8 @@ This workshop is divided into five progressive sections:
 ## Notes
 
 - All VMs in this workshop are accessed via browser (Guacamole) - no local SSH client required
-- The workshop uses SimpleVM interface (not the full OpenStack Horizon dashboard)
+- The workshop primarily uses SimpleVM interface (Parts 1-4)
+- Parts 5-7 are optional and cover advanced topics including the full OpenStack Horizon dashboard and advanced data transfer methods
 - Conda tools (mash, parallel, sra-tools) are pre-installed during VM creation
 - Minio client and other tools are installed during the workshop as needed
 - Workshop organizers have SSH access to help troubleshoot issues 
