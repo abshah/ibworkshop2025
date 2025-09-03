@@ -248,7 +248,7 @@ rm ~/processing/*.fastq.gz ~/processing/*_results.txt
 
 ## 7.4 Performance Optimization
 
-### 7.4.1 Transfer speed optimizatioBenefitsn
+### 7.4.1 Transfer speed optimization
 
 **Use Case**: You're transferring terabytes of sequencing data and need
 to maximize transfer speeds to meet project deadlines or minimize cloud
