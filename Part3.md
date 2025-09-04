@@ -108,7 +108,7 @@ some cloud object storage, for instance at the AWS cloud by Amazon.
 4. Next we need to tell minio where the AWS cloud storage can be accessed and what
    the access key and secret is.
    ``` bash
-   mc config host add aws https://s3.amazonaws.com "" ""
+   mc alias set aws https://s3.amazonaws.com "" ""
    ```
 5. Let's see if we can find our data that we used previously:
    ``` bash

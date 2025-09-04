@@ -49,9 +49,8 @@ In this workshop, we will use several tools that will be pre-installed in your V
 - **mash**: A fast genome and metagenome distance estimation tool
 - **parallel**: GNU parallel for running jobs in parallel
 - **fasterq-dump**: Part of the SRA Toolkit for converting SRA data
-- **minio client (mc)**: Command-line tool for object storage operations
 
-These tools will be available after activating the conda environment with `conda activate denbi` (covered in Section 2).
+These tools will be available after activating the conda environment with `conda activate denbi` (covered later in this workshop).
 
 **Note**: This workshop uses SimpleVM, which is a simplified interface for the de.NBI Cloud. The full OpenStack Horizon interface more advanced features but is not required for this workshop.
 
