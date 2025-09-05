@@ -1,5 +1,9 @@
 # Section 4: Using the Object Storage
 
+In this section, we will the openstack horizon interface directly. Please navigate to the following site:
+
+https://openstack.cebitec.uni-bielefeld.de/project/
+
 ## 4.1 Creating application credentials
 
 In this section you will create an [application
