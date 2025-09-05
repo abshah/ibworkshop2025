@@ -74,21 +74,40 @@ We will now use the minio client to upload some data. In the guacamole
 SimpleVM instance, type:
 
 ``` bash
-mkdir ~/data/fastq
+cd /mnt/volume
+```
+We will download some more data to play around with:
 
-mc cp sra/ftp.era.ebi.ac.uk/vol1/fastq/SRR398/008/SRR3984908/SRR3984908_1.fastq.gz ~/data/fastq/reads_1.fastq.gz
-mc cp sra/ftp.era.ebi.ac.uk/vol1/fastq/SRR398/008/SRR3984908/SRR3984908_2.fastq.gz ~/data/fastq/reads_2.fastq.gz
+``` bash
+mc cp sra/ftp.era.ebi.ac.uk/vol1/fastq/SRR398/008/SRR3984908/SRR3984908_1.fastq.gz .
+mc cp sra/ftp.era.ebi.ac.uk/vol1/fastq/SRR398/008/SRR3984908/SRR3984908_2.fastq.gz .
+```
 
-cd ~/data/fastq
+Next, we are going to create a new object storage container, a so called bucket. For this, we
+will use for the first time the horizon interface. Navigate to the **Container** entry under the **Object
+Store** menu entry. 
+Note: All containers here are visible to all project members, as those containers in openstack are bound to the project
+
+![](figures/TODO)
+
+This container is empty, but we can show it nevertheless on the command line using the minio client:
+
+``` bash
 mc ls ibworkshop
 ```
 
-This should show you your previously created bucket (container) name.
+This should show you your previously created bucket (container) name (next to all others).
 You can now upload data into it.
 
 ``` bash
-mc cp *.fastq ibworkshop/YOUR_CONTAINER_NAME
+mc cp *.fastq.gz ibworkshop/YOUR_CONTAINER_NAME
 mc ls ibworkshop/YOUR_CONTAINER_NAME
+```
+
+Tip: You can enable auto completion for the minio client. After activiation, the shell needs to be restartet, though.
+
+``` bash
+mc --autocompletion
 ```
 
 ![](figures/minio_verify.png)
