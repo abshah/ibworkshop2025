@@ -98,9 +98,8 @@ some cloud object storage, for instance at the AWS cloud by Amazon.
    [AWS marketplace](https://aws.amazon.com/marketplace/search/results?trk=8384929b-0eb1-4af3-8996-07aa409646bc&sc_channel=el&FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE&CONTRACT_TYPE=OPEN_DATA_LICENSES&filters=FULFILLMENT_OPTION_TYPE%2CCONTRACT_TYPE)
 2. Let's search if we can find the SRA database that we used previously for FTP download by search for the term 'sra'.
 3. S3 data can be directly accessed via web protocols, such as HTTPS (e.g. by using a browser or wget). However,
-   for convenient data management a client that speaks S3 is necessary. We will use the minio client for this.
-   Unfortunately, conda does not offer a minio cli binary, which means that we would have to install it manually.
-   Download the binary:
+   for convenient data management a client that speaks S3 is necessary. We will use the minio client for this. We have 
+   already downloaded the client previously.    
    ``` bash
    cd /mnt/volume   
    ```
