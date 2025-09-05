@@ -34,7 +34,7 @@ In this workshop, you will learn how to:
 
 ## Workshop Structure
 
-This workshop is divided into seven sections (Parts 5-7 are optional):
+This workshop is divided into four sections:
 
 1. **[Part 1: First Contact with the de.NBI Cloud](Part1.md)**
    - Creating a de.NBI Cloud account
@@ -60,23 +60,8 @@ This workshop is divided into seven sections (Parts 5-7 are optional):
    - Creating OpenStack application credentials
    - Setting up S3 credentials for object storage
    - Uploading data to object storage buckets
-   - Advanced object storage operations (copying, mirroring, policies)
-
-5. **[Part 5: Data Transfer](Part5.md)**
-   - Using scp, sshfs, and rsync for data transfer
-   - Transferring data between local and cloud environments
-   - Transferring data between different cloud instances
-   - Working with volumes for large data transfers
-
-6. **[Part 6: Using Horizon OpenStack Interface (Optional)](Part6.md)**
-   - Creating key pairs in Horizon
-   - Launching instances using the full OpenStack interface
-   - SSH access to Horizon-managed instances
-
-7. **[Part 7: Advanced Data Transfer Methods (Optional)](Part7.md)**
-   - Advanced object storage operations (cross-region replication, versioning)
-   - Efficient SSH-based transfers (rsync, SSHFS, parallel transfers)
-   - Hybrid transfer methods and data pipelines
+   - Advanced object storage operations (cross-region replication, batch operations)
+   - Advanced SSH-based transfers (rsync, parallel transfers)
    - Performance optimization and data integrity verification
 
 ## Key Concepts Covered
@@ -96,8 +81,8 @@ This workshop is divided into seven sections (Parts 5-7 are optional):
 ## Notes
 
 - All VMs in this workshop are accessed via browser (Guacamole) - no local SSH client required
-- The workshop primarily uses SimpleVM interface (Parts 1-4)
-- Parts 5-7 are optional and cover advanced topics including the full OpenStack Horizon dashboard and advanced data transfer methods
+- The workshop primarily uses SimpleVM interface (Parts 1-3)
+- Part 4 covers advanced object storage operations and data transfer methods
 - Conda tools (mash, parallel, sra-tools) are pre-installed during VM creation
 - Minio client and other tools are installed during the workshop as needed
 - Workshop organizers have SSH access to help troubleshoot issues 

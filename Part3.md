@@ -69,7 +69,7 @@ type of experiment.
 4. These data sets can be downloaded in different ways, e.g. using the public available
    FTP server:
    ``` bash
-   ftp ftp://ftp.sra.ebi.ac.uk/vol1/srr/SRR249/058/SRR24962458/SRR24962458
+   wget ftp://ftp.sra.ebi.ac.uk/vol1/srr/SRR249/058/SRR24962458/SRR24962458
    ```
 5. This data is still in a special format that needs to be converted in order to be inspected
    for specific virulence factors:
@@ -147,7 +147,7 @@ site holds a mirror of all metagenomic data of the SRA that we will use now.
    ```
 3. Add S3 config for our public SRA mirror on our Bielefeld Cloud site:
    ``` bash
-   mc config host add sra https://openstack.cebitec.uni-bielefeld.de:8080 "" ""
+   mc alias set sra https://openstack.cebitec.uni-bielefeld.de:8080 "" ""
    ```
 
 4. List which files are available for a specific SRA number, e.g. for `SRR3984908`:
