@@ -124,7 +124,10 @@ Here are some additional useful object storage operations:
 1.  **Copy data between buckets:**
 
     ``` bash
-    mc cp ibworkshop/YOUR_CONTAINER_NAME/file.txt ibworkshop/ANOTHER_CONTAINER/
+    touch YOUR_NAME.txt
+    wget https://loremipsum.de/downloads/original.txt -O YOUR_NAME.txt
+    mc cp YOUR_NAME.txt ibworkshop/YOUR_CONTAINER_NAME/
+    mc cp ibworkshop/YOUR_CONTAINER_NAME/YOUR_NAME.txt ibworkshop/example/
     ```
 
 2.  **Mirror entire directories:**
