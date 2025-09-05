@@ -54,7 +54,9 @@ Log in to the VM and verify that SimpleVM provisioned the VM correctly.
 
     Exit `htop` by typing `q` or `F10`.
 
-5.  You can use the tools you selected in the previous part by running
+5.  We have installed some tools previously using the conda environment management. In order to use them, we need to activate this environment. The default 
+    environemnt for using SimpleVM is **denbi**. To activate this, type
+
     `conda activate denbi`.
 
 6.  Test if the needed commands are installed by running all of them
