@@ -34,7 +34,6 @@ datasets via object storage.
 6. Navigate to the newly created volume and activate the conda environment:
    ``` bash
    cd /mnt/volume
-   conda activate denbi
    ```
    Additionally, we will install a small helper tool to access S3 storage directly:
    ``` bash
