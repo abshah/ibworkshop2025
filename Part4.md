@@ -1,8 +1,9 @@
 # Section 4: Using the Object Storage
 
-In this section, we will the openstack horizon interface directly. Please navigate to the following site:
+In this section, we will the openstack horizon interface directly.
+Please navigate to the following site:
 
-https://openstack.cebitec.uni-bielefeld.de/project/
+<https://openstack.cebitec.uni-bielefeld.de/project/>
 
 ## 4.1 Creating application credentials
 
@@ -19,9 +20,9 @@ blank. You should pick a sensible expiration date.
 
 ![Creation](images/ac_screen2.png)
 
-We will now save the downloaded `clouds.yaml` under `~/.config/openstack/`. That
-will allow the `OpenstackClient` to access it. You will also need the
-`app-cred-openrc.sh` script finish the setup.
+We will now save the downloaded `clouds.yaml` under
+`~/.config/openstack/`. That will allow the `OpenstackClient` to access
+it. You will also need the `app-cred-openrc.sh` script finish the setup.
 
 ![Download](images/ac_screen3.png)
 
@@ -76,6 +77,7 @@ SimpleVM instance, type:
 ``` bash
 cd /mnt/volume
 ```
+
 We will download some more data to play around with:
 
 ``` bash
@@ -83,28 +85,31 @@ mc cp sra/ftp.era.ebi.ac.uk/vol1/fastq/SRR398/008/SRR3984908/SRR3984908_1.fastq.
 mc cp sra/ftp.era.ebi.ac.uk/vol1/fastq/SRR398/008/SRR3984908/SRR3984908_2.fastq.gz .
 ```
 
-Next, we are going to create a new object storage container, a so called bucket. For this, we
-will use for the first time the horizon interface. Navigate to the **Container** entry under the **Object
-Store** menu entry. 
-Note: All containers here are visible to all project members, as those containers in openstack are bound to the project
+Next, we are going to create a new object storage container, a so called
+bucket. For this, we will use for the first time the horizon interface.
+Navigate to the **Container** entry under the **Object Store** menu
+entry. Note: All containers here are visible to all project members, as
+those containers in openstack are bound to the project
 
 ![](figures/TODO)
 
-This container is empty, but we can show it nevertheless on the command line using the minio client:
+This container is empty, but we can show it nevertheless on the command
+line using the minio client:
 
 ``` bash
 mc ls ibworkshop
 ```
 
-This should show you your previously created bucket (container) name (next to all others).
-You can now upload data into it.
+This should show you your previously created bucket (container) name
+(next to all others). You can now upload data into it.
 
 ``` bash
 mc cp *.fastq.gz ibworkshop/YOUR_CONTAINER_NAME
 mc ls ibworkshop/YOUR_CONTAINER_NAME
 ```
 
-Tip: You can enable auto completion for the minio client. After activiation, the shell needs to be restartet, though.
+Tip: You can enable auto completion for the minio client. After
+activiation, the shell needs to be restartet, though.
 
 ``` bash
 mc --autocompletion
@@ -132,29 +137,24 @@ Here are some additional useful object storage operations:
 
 2.  **Mirror entire directories:**
 
+    
     ``` bash
-    mc mirror ~/local_data ibworkshop/YOUR_CONTAINER_NAME/backup/
+    mc mirror aws/sra-pub-run-odp/sra/SRR27926243 ibworkshop/YOUR_CONTAINER_NAME/
     ```
 
 3.  **Set public access for sharing data:**
 
     ``` bash
-    mc policy set download ibworkshop/YOUR_CONTAINER_NAME/public/
+    mc anonymous --recursive set public ibworkshop/YOUR_CONTAINER_NAME/public/
     ```
 
-4.  **Monitor transfer progress:**
+## 4. Advanced Data Transfer Methods
 
-    ``` bash
-    mc cp --json large_file.gz ibworkshop/YOUR_CONTAINER_NAME/ | jq .
-    ```
-
-## Advanced Data Transfer Methods
-
-This section covers advanced data transfer techniques for moving data
+This section covers examples of advanced data transfer techniques for moving data
 efficiently between cloud instances, object storage containers, and
 hybrid environments. These methods are particularly useful for
 large-scale data processing workflows and collaborative research
-projects.
+projects. **However** these examples do not work out of the box. You will need to modify sufficiently.
 
 ## 4.5 Advanced Object Storage Operations
 
@@ -208,13 +208,11 @@ error handling.
 
 ``` bash
 # Upload multiple file types with wildcards
-mc cp ~/data/*.{fastq,fna,fa} ibworkshop/YOUR_CONTAINER_NAME/raw_data/
+mc cp /mount/volume/*.{fastq,fna,fa} ibworkshop/YOUR_CONTAINER_NAME/raw_data/
 
 # Download files matching specific patterns
 mc find ibworkshop/YOUR_CONTAINER_NAME --name "*.fastq.gz" --exec "mc cp {} ~/downloads/"
 
-# Sync directories with progress monitoring
-mc mirror --progress ~/local_data ibworkshop/YOUR_CONTAINER_NAME/synced_data/
 ```
 
 ## 4.6 Advanced SSH-based Transfers
@@ -241,7 +239,7 @@ efficient for incremental backups and dataset updates.
 
 ``` bash
 # Sync directories between instances
-rsync -avz -e "ssh -p YOUR_PORT" ubuntu@YOUR_VM_IP:/mnt/volume/data/ ~/local_backup/
+rsync -avz -e "ssh -p YOUR_PORT" ubuntu@YOUR_VM_IP:/mnt/volume/data/  ubuntu@YOUR_OTHER_VM_IP:/PATH/TO/data
 
 # Transfer with compression and progress
 rsync -avzP -e "ssh -p YOUR_PORT" ~/large_dataset/ ubuntu@YOUR_VM_IP:/mnt/volume/
@@ -298,7 +296,7 @@ optimized encryption.
 
 ``` bash
 # Use multiple connections for faster transfers
-mc cp --concurrent 4 large_file.gz ibworkshop/YOUR_CONTAINER_NAME/
+mc cp --max-workers 8 aws/sra-pub-run-odp/sra/SRR34093683/SRR34093683  ibworkshop/YOUR_CONTAINER_NAME/
 
 # Compress data during transfer
 rsync -avz --compress-level=9 -e "ssh -p YOUR_PORT" ~/data/ ubuntu@YOUR_VM_IP:/mnt/volume/
