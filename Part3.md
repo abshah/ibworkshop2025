@@ -31,6 +31,11 @@ datasets via object storage.
    sudo chown ubuntu:ubuntu /mnt/volume
    lsblk   
    ```
+   ![](figures/lsblk.png)
+   
+   
+   
+   ![](figures/mkfs_ext4.png)
 6. Navigate to the newly created volume and activate the conda environment:
    ``` bash
    cd /mnt/volume

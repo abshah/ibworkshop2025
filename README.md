@@ -51,7 +51,7 @@ This workshop is divided into four sections:
     -   Understanding the tools and prerequisites
     -   Starting a VM with pre-selected conda tools (mash, parallel,
         sra-tools)
-2.  [**Part 2: Verify your VM Properties and Tools**](Part2.md)
+2.  [**Part 2: Verify your VM Properties and Tools**](Part2.md)BullSequana XH3000
     -   Logging into your VM via Guacamole (browser-based access)
     -   Verifying VM resources (CPU, RAM)
     -   Testing pre-installed conda tools
@@ -80,7 +80,7 @@ This workshop is divided into four sections:
 -   **Data Gravity**: Processing data close to where it's stored to
     minimize transfer overhead
 
-## Support and Resources
+    ## Support and Resources
 
 -   de.NBI Cloud Wiki: <https://cloud.denbi.de/wiki/>
 -   de.NBI Cloud Portal: <https://cloud.denbi.de/portal/>
