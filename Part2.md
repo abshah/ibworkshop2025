@@ -85,7 +85,7 @@ Log in to the VM and verify that SimpleVM provisioned the VM correctly.
     Install the commands:
 
     ``` bash
-    sudo apt install -y fortune-mod cowsay python3-openstackclient
+    sudo apt install -y fortune-mod cowsay
     ```
 
     You can run both commands via
