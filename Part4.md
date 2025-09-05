@@ -19,7 +19,7 @@ blank. You should pick a sensible expiration date.
 
 ![Creation](images/ac_screen2.png)
 
-Save the downloaded `clouds.yaml` under `~/.config/openstack/`. That
+We will now save the downloaded `clouds.yaml` under `~/.config/openstack/`. That
 will allow the `OpenstackClient` to access it. You will also need the
 `app-cred-openrc.sh` script finish the setup.
 
@@ -30,14 +30,18 @@ If the file was auto downloaded, you need to move it instead:
 ``` bash
 mkdir -p ~/.config/openstack
 mv ~/Downloads/clouds.yaml ~/.config/openstack/
-source ~/Downloads/app-cred-openrc.sh
+mv ~/Downloads/app-cred*.sh ~/.config/openstack/
+chmod 600 ~/.config/openstack/clouds.yaml
+chmod 600 ~/.config/openstack/app-cred*.sh
+source ~/.config/openstack/app-cred*.sh
 ```
 
 If you have `OpenstackClient` installed and `openstack subnet list` runs
 without error, you are ready to proceed.
 
 ``` bash
-openstack subnet list
+openstack project list
+openstack prject show ib2025openstack1
 ```
 
 ## 4.2 Creating S3 credentials
