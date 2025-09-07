@@ -31,10 +31,14 @@ datasets via object storage.
    sudo chown ubuntu:ubuntu /mnt/volume
    lsblk   
    ```
+   ![](figures/lsblk.png)
+   
+   
+   
+   ![](figures/mkfs_ext4.png)
 6. Navigate to the newly created volume and activate the conda environment:
    ``` bash
    cd /mnt/volume
-   conda activate denbi
    ```
    Additionally, we will install a small helper tool to access S3 storage directly:
    ``` bash
@@ -69,7 +73,7 @@ type of experiment.
 4. These data sets can be downloaded in different ways, e.g. using the public available
    FTP server:
    ``` bash
-   ftp ftp://ftp.sra.ebi.ac.uk/vol1/srr/SRR249/058/SRR24962458/SRR24962458
+   wget ftp://ftp.sra.ebi.ac.uk/vol1/srr/SRR249/058/SRR24962458/SRR24962458
    ```
 5. This data is still in a special format that needs to be converted in order to be inspected
    for specific virulence factors:
@@ -99,9 +103,8 @@ some cloud object storage, for instance at the AWS cloud by Amazon.
    [AWS marketplace](https://aws.amazon.com/marketplace/search/results?trk=8384929b-0eb1-4af3-8996-07aa409646bc&sc_channel=el&FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE&CONTRACT_TYPE=OPEN_DATA_LICENSES&filters=FULFILLMENT_OPTION_TYPE%2CCONTRACT_TYPE)
 2. Let's search if we can find the SRA database that we used previously for FTP download by search for the term 'sra'.
 3. S3 data can be directly accessed via web protocols, such as HTTPS (e.g. by using a browser or wget). However,
-   for convenient data management a client that speaks S3 is necessary. We will use the minio client for this.
-   Unfortunately, conda does not offer a minio cli binary, which means that we would have to install it manually.
-   Download the binary:
+   for convenient data management a client that speaks S3 is necessary. We will use the minio client for this. We have 
+   already downloaded the client previously.    
    ``` bash
    cd /mnt/volume   
    ```
@@ -142,28 +145,19 @@ site holds a mirror of all metagenomic data of the SRA that we will use now.
 
 2. Activate the conda environment by running:
    ``` bash
-   conda activate denbi
    cd /mnt/volume   
    ```
 3. Add S3 config for our public SRA mirror on our Bielefeld Cloud site:
    ``` bash
-   mc config host add sra https://openstack.cebitec.uni-bielefeld.de:8080 "" ""
+   mc alias set sra https://openstack.cebitec.uni-bielefeld.de:8080 "" ""
    ```
 
 4. List which files are available for a specific SRA number, e.g. for `SRR3984908`:
    ``` bash
    mc ls sra/ftp.era.ebi.ac.uk/vol1/fastq/SRR398/008/SRR3984908
    ```
-   
-5. We will also download a sequence information of known pathogens. We created a mash index out of selected genomes
-   that were classified as  "greatest threat to human health" by the World Health Organisation (WHO) in 2017:
-   https://www.who.int/news/item/27-02-2017-who-publishes-list-of-bacteria-for-which-new-antibiotics-are-urgently-needed 
-   Please download the index:
-   ``` bash
-   wget https://openstack.cebitec.uni-bielefeld.de:8080/simplevm-workshop/genomes.msh
-   ```
-   
-6. We created a file that points to metagenomic datasets that you have found in the previous chapter.
+ 
+5. We created a file that points to metagenomic datasets that you have found in the previous chapter.
    Download the input file via:
    ``` bash
    wget https://raw.githubusercontent.com/deNBI/simpleVMWorkshopShort/EscienceDays2025/reads.tsv
@@ -172,13 +166,13 @@ site holds a mirror of all metagenomic data of the SRA that we will use now.
    ``` bash
    cat reads.tsv
    ```
-7. We will create a directory for the output for the following command. We will place an output
+6. We will create a directory for the output for the following command. We will place an output
    file for every SRA ID.
    ``` bash
    mkdir -p output
    ```
 
-8. You can now run the commands from the first part with found datasets as input (this may take a while to complete):
+7. You can now run the commands from the first part with found datasets as input (this may take a while to complete):
    Create a function that we will run in parallel:
    ``` bash
    search(){ 
@@ -218,11 +212,11 @@ site holds a mirror of all metagenomic data of the SRA that we will use now.
      * `reads.tsv` is a list of datasets that we want to scan.
      * `search` is the function that we want to call.
 
-9. Optional: This command will run a few minutes. You could open a second terminal
+8. Optional: This command will run a few minutes. You could open a second terminal
    and inspect the cpu utilization with `htop`.
    ![](figures/htop.png)
 
-10. Concatenate all results into one file via 
+9. Concatenate all results into one file via 
    ``` bash
    cat output/*.txt > output.tsv
    ```
