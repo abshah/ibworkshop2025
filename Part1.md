@@ -98,7 +98,7 @@ You start this tutorial from your profile page
 
     You will learn in the next sections how to apply these tools.
 
-5.  Grant access to the workshop organizers (Sebastian Jünemann). This
+5.  Grant access to the workshop organizers (**Sebastian Jünemann** and **Abhijeet Shah**). This
     way these members get ssh access to your VM and can help you in case
     something does not work as expected.
     ![](./figures/additional_users.png)
