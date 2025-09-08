@@ -144,6 +144,8 @@ Here are some additional useful object storage operations:
 
 3.  **Set public access for sharing data:**
 
+**Caution**: This will expose your data in the folder to the open internet.
+
     ``` bash
     mc anonymous --recursive set public ibworkshop/YOUR_CONTAINER_NAME/public/
     ```
