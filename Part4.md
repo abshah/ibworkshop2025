@@ -139,7 +139,7 @@ Here are some additional useful object storage operations:
 
     
     ``` bash
-    mc mirror aws/sra-pub-run-odp/sra/SRR27926243 ibworkshop/YOUR_CONTAINER_NAME/
+    mc cp --recursive aws/sra-pub-run-odp/sra/SRR27926243 ibworkshop/YOUR_CONTAINER_NAME/
     ```
 
 3.  **Set public access for sharing data:**
