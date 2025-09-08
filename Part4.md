@@ -148,7 +148,7 @@ Here are some additional useful object storage operations:
 
     
     ``` bash
-    mc anonymous --recursive set public ibworkshop/YOUR_CONTAINER_NAME/public/
+    mc anonymous --recursive set download ibworkshop/YOUR_CONTAINER_NAME/public/
     ```
 
 ## 4. Advanced Data Transfer Methods
