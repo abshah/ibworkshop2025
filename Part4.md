@@ -42,7 +42,7 @@ without error, you are ready to proceed.
 
 ``` bash
 openstack project list
-openstack prject show ib2025openstack1
+openstack project show ib2025openstack1
 ```
 
 ## 4.2 Creating S3 credentials
