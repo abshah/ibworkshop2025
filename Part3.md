@@ -106,6 +106,7 @@ some cloud object storage, for instance at the AWS cloud by Amazon.
    for convenient data management a client that speaks S3 is necessary. We will use the minio client for this. We have 
    already downloaded the client previously.    
    ``` bash
+   conda activate denbi
    cd /mnt/volume   
    ```
 4. Next we need to tell minio where the AWS cloud storage can be accessed and what
@@ -145,6 +146,7 @@ site holds a mirror of all metagenomic data of the SRA that we will use now.
 
 2. Activate the conda environment by running:
    ``` bash
+   conda activate denbi
    cd /mnt/volume   
    ```
 3. Add S3 config for our public SRA mirror on our Bielefeld Cloud site:
