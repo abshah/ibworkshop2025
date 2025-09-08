@@ -135,15 +135,17 @@ Here are some additional useful object storage operations:
     mc cp ibworkshop/YOUR_CONTAINER_NAME/YOUR_NAME.txt ibworkshop/example/
     ```
 
-2.  **Mirror entire directories:**
+2.  **Copy entire directories:**
 
     
     ``` bash
-    mc mirror aws/sra-pub-run-odp/sra/SRR27926243 ibworkshop/YOUR_CONTAINER_NAME/
+    mc cp --recursive aws/sra-pub-run-odp/sra/SRR27926243 ibworkshop/YOUR_CONTAINER_NAME/
     ```
 
 3.  **Set public access for sharing data:**
 
+
+**Caution**: This will expose your data in the folder to the open internet.
     ``` bash
     mc anonymous --recursive set public ibworkshop/YOUR_CONTAINER_NAME/public/
     ```
